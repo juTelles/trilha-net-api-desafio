@@ -22,8 +22,8 @@ namespace TrilhaApiDesafio.Controllers
 
             if (tarefa == null)
                 return NotFound();
-            // caso contrário retornar OK com a tarefa encontrada
-            return Ok();
+           
+            return Ok(tarefa);
         }
 
         [HttpGet("ObterTodos")]
