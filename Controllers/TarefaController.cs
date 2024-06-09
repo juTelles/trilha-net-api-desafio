@@ -22,7 +22,7 @@ namespace TrilhaApiDesafio.Controllers
 
             if (tarefa == null)
                 return NotFound();
-           
+
             return Ok(tarefa);
         }
 
@@ -38,7 +38,7 @@ namespace TrilhaApiDesafio.Controllers
         public IActionResult ObterPorTitulo(string titulo)
         {
             var tarefasPorTitulo = _context.Tarefas.Where(tarefa => tarefa.Titulo.Contains(titulo));
-            
+
             return Ok(tarefasPorTitulo);
         }
 
@@ -46,6 +46,7 @@ namespace TrilhaApiDesafio.Controllers
         public IActionResult ObterPorData(DateTime data)
         {
             var tarefa = _context.Tarefas.Where(x => x.Data.Date == data.Date);
+
             return Ok(tarefa);
         }
 
@@ -65,7 +66,7 @@ namespace TrilhaApiDesafio.Controllers
 
             _context.Add(tarefa);
             _context.SaveChanges();
-            
+
             return CreatedAtAction(nameof(ObterPorId), new { id = tarefa.Id }, tarefa);
         }
 
